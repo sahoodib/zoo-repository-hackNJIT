@@ -1,7 +1,7 @@
 import React from "react";
-import './RestaurentPage.css';
+import './RestaurantPage.css';
 
-class Restaurent extends React.Component {
+class Restaurant extends React.Component {
     constructor(props){
         super(props);
     }
@@ -13,4 +13,4 @@ class Restaurent extends React.Component {
     }
 }
 
-export default Restaurent;
+export default Restaurant;

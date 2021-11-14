@@ -1,16 +1,16 @@
 import React from "react";
-import './Navigation.css';
+import './Common.css';
 
-class Link extends React.Component {
+class CommentInterface extends React.Component {
     constructor(props){
         super(props);
     }
     render(){
         return (
             <div>
+                
             </div>
         );
     }
 }
-
-export default Link;
+export default CommentInterface;
