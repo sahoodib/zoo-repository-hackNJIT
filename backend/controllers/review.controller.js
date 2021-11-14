@@ -3,7 +3,7 @@ const db = require('../models/index');
 exports.getReviews = async (req)=>{
     const reviewData = [];
     try{
-        reviewData = await db.sequelize.query(`SELECT * FROM comments as c NATURAL JOIN sentimentanalysis as s NATURAL JOIN AnimalComments as a WHERE s.sentimentid = c.sentimentId and a.animalid = '7291abd8-4459-490a-8e22-8e22c38c2e4c'`, {type: db.Sequelize.QueryTypes.SELECT});
+        reviewData = await db.sequelize.query(`SELECT * FROM comments as c NATURAL JOIN sentimentanalysis as s NATURAL JOIN AnimalComments as a WHERE s.sentimentid = c.sentimentId and a.animalid = '${req.animalId}'`, {type: db.Sequelize.QueryTypes.SELECT});
         return {
             status: 200,
             data: reviewData
@@ -36,7 +36,7 @@ exports.postReviews = async (req)=>{
     }
 }
 
-exports.useSentimentAnalysis = async (req)=>{
+exports.putSentimentAnalysis = async (req)=>{
     try{
         const comment = await db.sequelize['sentimentanalysis'].findOne({where: {sentimentId: req.sentimentId}});
         comment.classificationValue = 1;

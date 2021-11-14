@@ -1,6 +1,6 @@
 const db = require('../models/index');
 
-exports.getAnimals = (req)=>{
+exports.getAnimals = async (req)=>{
     try{
         const animalData = await db.sequelize.query(`SELECT * FROM livingentities as s NATURAL JOIN animals as a WHERE s.entityid = a.entityId and a.entityid = '${req.animalId}'`, {type: db.Sequelize.QueryTypes.SELECT});
         return {

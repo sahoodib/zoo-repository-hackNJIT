@@ -10,6 +10,10 @@ router.get('/review', async (req,res)=>{
     const results = await reviewController.getReviews(req);
     res.status(results.status).send(results);
 });
+router.put('/sentiment', async (req,res)=>{
+    const results = await reviewController.putSentimentAnalysis(req);
+    res.status(results.status).send(results);
+});
 
 
 module.exports = router;
